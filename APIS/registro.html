@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/estilos.css">
+    <title>incio</title>
+
+</head>
+<body>
+
+<div class="container">
+    <BR></BR>
+    <div class="titulo">
+        <h1>GESTOR DE INVENTARIO FERTILSA S.A.S.</h1>
+    </div>
+    
+    
+           
+
+<div class="card-padre">
+<div class="card card-hijo">
+    <div class="card-body">
+    <h5 class="card-title">REGISTRO DE USUARIO</h5>
+    
+      
+    <form id="formnuevo">
+            <div class="mb-3">  
+                <input type="text" id="user" placeholder="Usuario" class="form-control" required>
+                <input type="password" id="contra" placeholder="Contraseña" class="form-control" required>
+                <input type="text" id="nombre" placeholder="Nombre" class="form-control">
+                <input type="text" id="apellidos" placeholder="Apellidos" class="form-control">
+                <input type="text" id="celular" placeholder="Celular" class="form-control">
+                <div class="centrar_boton">
+                <button type="submit" class="btn btn-primary">Registrarse</button>
+                </div>
+
+
+                </div>
+                <a href="index.html">¿Ya tienes cuenta? Inicia sesión</a>
+    </form>
+            
+    </div>
+</div>
+</div>
+</div>
+
+<div class="mensaje" id="mensaje"></div>
+<br>
+
+<script>
+
+document.getElementById("formnuevo").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const data = {
+        user: document.getElementById("user").value,
+        pass: document.getElementById("contra").value,
+        nombre: document.getElementById("nombre").value,
+        apellidos: document.getElementById("apellidos").value,
+        celular: document.getElementById("celular").value
+    };
+
+    const respuesta = await fetch("http://localhost/apis/regis.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        //Convierte el objeto JavaScript a JSON.
+        body: JSON.stringify(data)
+    });
+
+    const resultado = await respuesta.json();
+    const divMensaje = document.getElementById("mensaje");
+
+    if (resultado.success) {
+        divMensaje.style.color = "green";
+        divMensaje.textContent = "✔️ Usuario registrado exitosamente";
+    } else {
+        divMensaje.style.color = "red";
+        divMensaje.textContent = "❌" + (resultado.error || resultado.mensaje);
+    }
+});
+</script>
+
+
+</body>
+</html>

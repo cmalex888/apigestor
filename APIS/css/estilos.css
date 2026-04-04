@@ -1,0 +1,115 @@
+body,html{
+    height: 100%;
+    margin: 0;
+    background: linear-gradient(0deg,#3A3D94,#0A0C57);
+
+}
+
+.titulo{
+height: 100px;
+background: #0EADE6;
+align-content: center;
+text-align: center;
+
+
+}
+
+.alert{
+
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+
+}
+
+.centrar_boton{
+    display: flex;
+    justify-content: center;
+    grid-gap: 5px;
+}
+
+.card-title{
+    justify-content: center;
+    text-align: center;
+}
+
+.card-padre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+.card-hijo{
+    padding: 10px;
+    width: 300px;
+    height: 350px;
+}
+
+.card-text{
+    justify-content: center;
+    text-align: center;
+}
+
+.card{
+    margin: 0 auto;
+}
+
+
+.container_nav{
+    padding: 20px;
+    margin: 10px;
+    
+}
+
+.container_header{
+    padding: 10px;
+    font-size: 30px;
+    margin: 20;
+    display: flex;
+    justify-content: center;
+    height: 80px;
+    
+}
+
+.card-padre2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.card-hijo2{
+    padding: 10px;
+    width: 550px;
+    height: auto;
+   
+}
+
+.card-padre3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+}
+
+.card-hijo3{
+    padding: 20px;
+    width: 600px;
+    height: auto;
+}
+
+.card-padre4{
+    display: flex;
+    justify-content: center;
+    align-items:start;
+    height: 85vh;
+}
+
+.card-hijo4{
+    padding: 50px;
+    width: 300px;
+    height: auto;
+}
+
+

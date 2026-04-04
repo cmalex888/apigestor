@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/estilos.css">
+    <title>incio</title>
+
+</head>
+<body>
+
+<div class="container">
+    <BR></BR>
+    <div class="titulo">
+        <h1>GESTOR DE INVENTARIO FERTILSA S.A.S.</h1>
+    </div>
+    
+        
+
+<div class="card-padre">
+<div class="card card-hijo">
+    <div class="card-body">
+    <h5 class="card-title">VALIDACIÓN DE USUARIO</h5>
+    
+      
+    <form id="formulario">
+            <div class="mb-3">  
+              <label for="usuario" class="form-label">Usuario</label>
+              <input type="text" class="form-control" id="user" placeholder="Usuario" required>
+              
+            </div>
+            <div class="mb-3">
+              <label for="contra" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="contra" placeholder="Contraseña" requiered>
+            </div>
+            
+            <div class="centrar_boton">
+            <button type="submit" class="btn btn-primary">Validar</button>
+            <button type="reset" class="btn btn-danger">Limpiar</button>
+            </div>
+            <a href="registro.html">Registrarse</a>
+    </form>
+            
+    </div>
+</div>
+</div>
+</div>
+
+<div class="mensaje" id="mensaje"></div>
+<br>
+
+
+<script>
+       
+    document.getElementById("formulario").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const usuario = document.getElementById("user").value;
+    const clave = document.getElementById("contra").value;
+
+    //hace una petición HTTP a la URL - esperar hasta que responda el servidor
+    const respuesta = await fetch("http://localhost/apis/log.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ user: usuario, contra: clave })
+    });
+
+    const data = await respuesta.json();
+
+    const divMensaje = document.getElementById("mensaje");
+
+    if (data.success) {
+        divMensaje.style.color = "green";
+        divMensaje.textContent = "✔️ Login exitoso. Bienvenido " + data.usuario.nombre;
+    } else {
+        divMensaje.style.color = "red";
+        divMensaje.textContent = "❌ El login no se encuentra creado " + data.mensaje;
+    }
+    });
+
+</script>
+
+
+</body>
+</html>
