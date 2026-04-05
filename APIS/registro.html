@@ -27,13 +27,14 @@
       
     <form id="formnuevo">
             <div class="mb-3">  
-                <input type="text" id="user" placeholder="Usuario" class="form-control" required>
-                <input type="password" id="contra" placeholder="Contraseña" class="form-control" required>
+                <input type="text" id="user" placeholder="Usuario" class="form-control">
+                <input type="password" id="contra" placeholder="Contraseña" class="form-control">
                 <input type="text" id="nombre" placeholder="Nombre" class="form-control">
                 <input type="text" id="apellidos" placeholder="Apellidos" class="form-control">
                 <input type="text" id="celular" placeholder="Celular" class="form-control">
                 <div class="centrar_boton">
                 <button type="submit" class="btn btn-primary">Registrarse</button>
+                <button type="reset" class="btn btn-danger">Limpiar</button>
                 </div>
 
 
@@ -56,7 +57,7 @@ document.getElementById("formnuevo").addEventListener("submit", async (e) => {
 
     const data = {
         user: document.getElementById("user").value,
-        pass: document.getElementById("contra").value,
+        contra: document.getElementById("contra").value,
         nombre: document.getElementById("nombre").value,
         apellidos: document.getElementById("apellidos").value,
         celular: document.getElementById("celular").value
