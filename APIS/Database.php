@@ -54,7 +54,7 @@ class Database {
     // MÉTODO PARA VERIFICAR SI USUARIO EXISTE PARA CREARLO
     public function usuarioExiste($usuario) {
         try {
-            $sql = "SELECT id FROM usuarios WHERE usuario = ?";
+            $sql = "SELECT usuario FROM usuarios WHERE usuario = ?";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute([$usuario]);
             return $stmt->fetch(PDO::FETCH_ASSOC) !== false;
